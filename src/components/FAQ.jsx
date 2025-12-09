@@ -59,7 +59,7 @@ const FAQ = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+880 1234 567890",
+      details: "+880 17333 58150",
       subtitle: "10 AM - 8 PM, 7 days a week",
     },
     {
@@ -224,57 +224,6 @@ const FAQ = () => {
                   Contact Support
                 </motion.button>
               </div>
-
-              {/* Quick Links */}
-              <div
-                className="bg-white rounded-2xl p-6 shadow-lg"
-                data-aos="fade-left"
-                data-aos-delay="300"
-              >
-                <h4 className="text-xl font-bold text-gray-900 mb-4">
-                  Quick Links
-                </h4>
-                <ul className="space-y-3">
-                  {[
-                    "Product Catalog",
-                    "Certificates",
-                    "Distributor Network",
-                    "Careers",
-                    "Privacy Policy",
-                    "Terms of Service",
-                  ].map((link, index) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="flex items-center text-gray-600 hover:text-primary transition-colors group"
-                        data-aos="fade-left"
-                        data-aos-delay={400 + index * 50}
-                      >
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Newsletter Signup */}
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h4 className="font-bold text-gray-900 mb-3">Stay Updated</h4>
-                  <div className="flex">
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    <button className="bg-primary text-white px-4 py-2 rounded-r-lg font-medium hover:bg-green-700 transition-colors">
-                      Join
-                    </button>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2">
-                    Get updates on new products and offers
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -287,8 +236,8 @@ const FAQ = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { day: "Sunday - Thursday", time: "9:00 AM - 8:00 PM" },
-                { day: "Friday", time: "3:00 PM - 8:00 PM" },
+                { day: "Sunday - Thursday", time: "9:00 AM - 6:00 PM" },
+                { day: "Friday", time: "OFF" },
                 { day: "Saturday", time: "10:00 AM - 6:00 PM" },
                 { day: "Emergency Support", time: "24/7 Available" },
               ].map((schedule, index) => (

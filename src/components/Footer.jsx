@@ -21,7 +21,7 @@ const Footer = () => {
     gsap.from(".footer-item", {
       scrollTrigger: {
         trigger: "footer",
-        start: "top 80%",
+        start: "top 50%",
       },
       y: 30,
       opacity: 0,
@@ -241,7 +241,7 @@ const Footer = () => {
             <motion.div
               key={category}
               variants={itemVariants}
-              className="footer-item"
+              className="space-y-3"
             >
               <h4 className="text-lg font-bold mb-4">{category}</h4>
               <ul className="space-y-3">
