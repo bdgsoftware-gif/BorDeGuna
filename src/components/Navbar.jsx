@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,23 +18,27 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHomePage = location.pathname === "/";
+
   const navLinks = [
-    { name: "Home", href: "#home", type: "link" },
+    { name: "Home", href: isHomePage ? "#home" : "/", type: "link" },
     {
       name: "Brands",
-      href: "#brands",
+      href: isHomePage ? "#brands" : "/#brands",
       type: "dropdown",
       items: [
-        { name: "La La Dia", href: "#brands" },
-        { name: "Bionic", href: "#brands" },
-        { name: "All Brands", href: "#brands" },
+        { name: "La La Dia", href: isHomePage ? "#brands" : "/#brands" },
+        { name: "Bionic", href: isHomePage ? "#brands" : "/#brands" },
+        { name: "All Brands", href: isHomePage ? "#brands" : "/#brands" },
       ],
     },
-    { name: "Products", href: "#products", type: "link" },
-    { name: "About", href: "#vision", type: "link" },
-    { name: "Why Trust Us", href: "#trust", type: "link" },
+    { name: "Products", href: isHomePage ? "#products" : "/#products", type: "link" },
+    { name: "Gallery", href: "/gallery", type: "link" },
+    { name: "About", href: isHomePage ? "#vision" : "/#vision", type: "link" },
+    { name: "Why Trust Us", href: isHomePage ? "#trust" : "/#trust", type: "link" },
     { name: "Contact", href: "#", type: "link" },
   ];
+
 
   // For PNG logo - replace with your actual logo path
   const logoUrl = "/logo.png"; // Place your logo.png in public folder
@@ -49,7 +55,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Left Navigation (Desktop) */}
             <div className="hidden lg:flex items-center space-x-8 flex-1">
-              {navLinks.slice(0, 3).map((link) =>
+              {navLinks.slice(0, 4).map((link) =>
                 link.type === "dropdown" ? (
                   <div
                     key={link.name}
@@ -70,19 +76,37 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute left-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                          {link.items.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                            >
-                              {item.name}
-                            </a>
-                          ))}
+                            {link.items.map((item) => 
+                              item.href.startsWith("/") ? (
+                                <Link
+                                  key={item.name}
+                                  to={item.href}
+                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                                >
+                                  {item.name}
+                                </Link>
+                              ) : (
+                                <a
+                                  key={item.name}
+                                  href={item.href}
+                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                                >
+                                  {item.name}
+                                </a>
+                              )
+                            )}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
+                ) : link.href.startsWith("/") ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {link.name}
+                  </Link>
                 ) : (
                   <a
                     key={link.name}
@@ -97,7 +121,7 @@ const Navbar = () => {
 
             {/* Centered Logo */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <a href="#home" className="flex items-center space-x-3">
+              <Link to="/" className="flex items-center space-x-3">
                 {/* PNG Logo Container */}
                 <div className="relative">
                   {/* Logo Background */}
@@ -144,12 +168,12 @@ const Navbar = () => {
                     Since 2019
                   </p>
                 </div>
-              </a>
+              </Link>
             </div>
 
             {/* Right Navigation (Desktop) */}
             <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
-              {navLinks.slice(3).map((link) =>
+              {navLinks.slice(4).map((link) =>
                 link.type === "dropdown" ? (
                   <div
                     key={link.name}
@@ -170,19 +194,37 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                          {link.items.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                            >
-                              {item.name}
-                            </a>
-                          ))}
+                            {link.items.map((item) => 
+                              item.href.startsWith("/") ? (
+                                <Link
+                                  key={item.name}
+                                  to={item.href}
+                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                                >
+                                  {item.name}
+                                </Link>
+                              ) : (
+                                <a
+                                  key={item.name}
+                                  href={item.href}
+                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                                >
+                                  {item.name}
+                                </a>
+                              )
+                            )}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
+                ) : link.href.startsWith("/") ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {link.name}
+                  </Link>
                 ) : (
                   <a
                     key={link.name}
@@ -255,6 +297,14 @@ const Navbar = () => {
                             ))}
                           </div>
                         </details>
+                      ) : link.href.startsWith("/") ? (
+                        <Link
+                          to={link.href}
+                          className="block py-4 text-gray-700 hover:text-primary font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
                       ) : (
                         <a
                           href={link.href}
