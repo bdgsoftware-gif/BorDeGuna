@@ -5,7 +5,6 @@ import { ArrowRight, Shield, Leaf, Star, Award } from "lucide-react";
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const textRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -13,28 +12,28 @@ const Hero = () => {
     tl.fromTo(
       ".hero-title",
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
     );
 
     tl.fromTo(
       ".hero-subtitle",
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.8 },
-      "-=0.5"
+      "-=0.5",
     );
 
     tl.fromTo(
       ".hero-button",
       { scale: 0.8, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1 },
-      "-=0.3"
+      "-=0.3",
     );
 
     tl.fromTo(
       ".hero-badge",
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
-      "-=0.2"
+      "-=0.2",
     );
 
     // Clean floating animation without blur
@@ -74,12 +73,14 @@ const Hero = () => {
               {/* Main Title */}
               <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Transforming Lives with{" "}
-                <span className="text-primary block mt-2">Nature's Purity</span>
+                <span className="text-primary lg:block mt-2">
+                  Nature's Purity
+                </span>
               </h1>
 
               {/* Subtitle */}
               <p className="hero-subtitle text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                Since 2019, Bor de Guna has been creating premium, toxin-free
+                Since 2019, Bôr dé Güna has been creating premium, toxin-free
                 solutions that nurture health, inspire wellness, and uplift
                 lifestyles through purpose-driven brands that embody purity and
                 sustainability.
@@ -126,10 +127,10 @@ const Hero = () => {
                           index === 0
                             ? "bg-emerald-100 text-emerald-600"
                             : index === 1
-                            ? "bg-amber-100 text-amber-600"
-                            : index === 2
-                            ? "bg-blue-100 text-blue-600"
-                            : "bg-purple-100 text-purple-600"
+                              ? "bg-amber-100 text-amber-600"
+                              : index === 2
+                                ? "bg-blue-100 text-blue-600"
+                                : "bg-purple-100 text-purple-600"
                         }`}
                       >
                         <item.icon className="w-5 h-5" />
@@ -186,7 +187,7 @@ const Hero = () => {
                           { value: "15K+", label: "Happy Customers" },
                           { value: "50+", label: "Products" },
                           { value: "6", label: "Years" },
-                        ].map((stat, index) => (
+                        ].map((stat) => (
                           <div key={stat.label} className="floating-element">
                             <div className="text-2xl font-bold text-gray-900">
                               {stat.value}
@@ -225,7 +226,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
-            className="mt-16 text-center"
+            className="mt-16 text-center hidden md:block"
           >
             <div className="inline-flex flex-col items-center text-gray-400">
               <span className="text-sm mb-2">Scroll to explore</span>

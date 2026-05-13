@@ -99,7 +99,7 @@ const WhyTrust = () => {
       name: "Dr. Fatima Rahman",
       role: "Nutrition Specialist",
       content:
-        "Bor de Guna products have transformed my approach to holistic wellness. Their commitment to purity is unmatched.",
+        "Bôr dé Güna products have transformed my approach to holistic wellness. Their commitment to purity is unmatched.",
       rating: 5,
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400",
     },
@@ -116,7 +116,7 @@ const WhyTrust = () => {
       name: "Priya Sharma",
       role: "Health Blogger",
       content:
-        "As someone who reviews wellness products, I can confidently say Bor de Guna sets the standard for quality.",
+        "As someone who reviews wellness products, I can confidently say Bôr dé Güna sets the standard for quality.",
       rating: 5,
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400",
@@ -147,7 +147,7 @@ const WhyTrust = () => {
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Trust Bor de Guna?
+            Why Trust Bôr dé Güna?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our commitment to quality, purity, and sustainability sets us apart
@@ -250,7 +250,7 @@ const WhyTrust = () => {
                   <span className="font-semibold text-gray-700">{cert}</span>
                   <span className="text-sm text-gray-500">Certified</span>
                 </motion.div>
-              )
+              ),
             )}
           </div>
         </div>
@@ -274,6 +274,8 @@ const WhyTrust = () => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>

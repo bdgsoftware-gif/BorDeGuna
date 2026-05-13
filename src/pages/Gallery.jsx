@@ -11,35 +11,18 @@ const Gallery = () => {
 
   const videos = [
     {
-      id: "dQw4w9WgXcQ", // Placeholder ID, user will change
-      title: "Our Pure Honey Journey",
-      description: "Discover how we source the purest honey from the heart of nature.",
-      category: "Process",
-    },
-    {
-      id: "dQw4w9WgXcQ",
-      title: "Artisanal Ghee Making",
-      description: "Traditional methods meeting modern safety standards.",
-      category: "Product",
-    },
-    {
-      id: "dQw4w9WgXcQ",
-      title: "Sustainable Farming",
-      description: "How we support our local farmers and the environment.",
-      category: "Mission",
-    },
-    {
-      id: "dQw4w9WgXcQ",
-      title: "Customer Testimonials",
-      description: "Real stories from people whose lives were transformed.",
-      category: "Trust",
+      id: "dRgKI0p9a9w",
+      title: "Premium Dry Fish Collection",
+      description:
+        "Taste the tradition with our sustainably sourced, sun-dried premium fish collection.",
+      category: "Featured",
     },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
+
       <main className="pt-24 pb-20">
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-emerald-50 to-white py-16 mb-12">
@@ -51,13 +34,16 @@ const Gallery = () => {
             >
               <span className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4">
                 <Video className="w-4 h-4" />
-                <span className="font-medium text-sm tracking-wide uppercase">Video Gallery</span>
+                <span className="font-medium text-sm tracking-wide uppercase">
+                  Video Gallery
+                </span>
               </span>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Our Story in <span className="text-primary">Motion</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Explore our collection of videos showcasing our commitment to purity, sustainability, and the stories behind Bor de Guna.
+                Explore our featured collection and discover the authentic taste
+                of Bôr dé Güna's premium dry fish.
               </p>
             </motion.div>
           </div>
@@ -124,14 +110,35 @@ const Gallery = () => {
         <section className="container mx-auto px-4 mt-24">
           <div className="max-w-4xl mx-auto bg-primary rounded-[3rem] p-12 text-center text-white relative overflow-hidden shadow-2xl shadow-primary/20">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Want to see more?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Experience the Pure Taste
+              </h2>
               <p className="text-emerald-50 text-lg mb-8 max-w-xl mx-auto">
-                Subscribe to our YouTube channel for weekly updates, recipes, and wellness tips.
+                Get your hands on our premium dry fish collection today. Pure,
+                traditional, and delivered right to your door.
               </p>
-              <button className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-emerald-50 transition-all duration-300 shadow-lg flex items-center space-x-3 mx-auto">
+              <motion.a
+                href="https://laladia.com/page/dryfish-collection"
+                target="_blank"
+                rel="noopener noreferrer"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  boxShadow: [
+                    "0px 0px 0px rgba(255, 255, 255, 0)",
+                    "0px 0px 20px rgba(255, 255, 255, 0.4)",
+                    "0px 0px 0px rgba(255, 255, 255, 0)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-emerald-50 transition-all duration-300 shadow-lg inline-flex items-center space-x-3 mx-auto"
+              >
                 <Play className="w-5 h-5 fill-current" />
-                <span>Visit Channel</span>
-              </button>
+                <span>Buy Collection Now</span>
+              </motion.a>
             </div>
             {/* Background Ornaments */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>

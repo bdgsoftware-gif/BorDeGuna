@@ -11,6 +11,7 @@ const Brands = () => {
       logo: "/logos/laladia.png",
       color: "from-yellow-400 to-yellow-600",
       products: ["Honey", "Ghee", "Pickles", "Dry Fish"],
+      url: "https://laladia.com",
     },
     {
       name: "Bionic",
@@ -18,6 +19,7 @@ const Brands = () => {
       logo: "/logos/bionic.png",
       color: "from-primary to-green-600",
       products: ["Wellness Supplements", "Organic Foods", "Health Products"],
+      url: "https://bionic.garden",
     },
     {
       name: "Azmion",
@@ -31,6 +33,7 @@ const Brands = () => {
         "Enterprise Applications",
         "AI-Driven Tools",
       ],
+      url: "https://theazmion.com",
     },
   ];
 
@@ -85,6 +88,8 @@ const Brands = () => {
                 <img
                   src={brand.logo}
                   alt={`${brand.name} logo`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-10 object-contain drop-shadow-md"
                 />
               </div>
@@ -109,13 +114,19 @@ const Brands = () => {
                 </div>
               </div>
 
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center text-primary font-semibold cursor-pointer"
+              <a 
+                href={brand.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
               >
-                <span>Learn more</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </motion.div>
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-primary font-semibold cursor-pointer"
+                >
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </motion.div>
+              </a>
             </motion.div>
           ))}
         </motion.div>

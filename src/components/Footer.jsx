@@ -33,9 +33,9 @@ const Footer = () => {
 
   const footerLinks = {
     "Our Brands": [
-      { name: "La La Dia", href: "#" },
-      { name: "Bionic", href: "#" },
-      { name: "Bionic Restaurants", href: "#" },
+      { name: "La La Dia", href: "https://laladia.com" },
+      { name: "Bionic", href: "https://bionic.garden" },
+      { name: "Azmion", href: "https://theazmion.com" },
       { name: "Wellness Centres", href: "#" },
     ],
     Products: [
@@ -67,7 +67,7 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: Phone, text: "+880 17333 58150", href: "tel:+8801733358150" },
+    { icon: Phone, text: "+880 1733-358158", href: "tel:+8801733358158" },
     {
       icon: Mail,
       text: "info@bordeguna.com",
@@ -75,8 +75,8 @@ const Footer = () => {
     },
     {
       icon: MapPin,
-      text: "Corporate Office: 123 Wellness Street, Dhaka 1207, Bangladesh",
-      href: "https://maps.google.com",
+      text: "65, Feroza Garden, Shahid Smriti Sarak, Barguna-8700, Bangladesh",
+      href: "https://www.google.com/maps/search/?api=1&query=65,+Feroza+Garden,+Shahid+Smriti+Sarak,+Barguna-8700,+Bangladesh",
     },
   ];
 
@@ -127,7 +127,7 @@ const Footer = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl font-bold">Bor de Guna</h2>
+                <h2 className="text-3xl font-bold">Bôr dé Güna</h2>
                 <p className="text-gray-300">Since 2019</p>
               </div>
             </motion.div>
@@ -142,7 +142,11 @@ const Footer = () => {
             </motion.p>
 
             {/* Contact Info */}
-            <motion.div variants={itemVariants} className="space-y-4">
+            <motion.div
+              id="footer-contact"
+              variants={itemVariants}
+              className="space-y-4"
+            >
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
@@ -271,7 +275,7 @@ const Footer = () => {
               data-aos="fade-up"
             >
               <p className="text-gray-400">
-                &copy; {new Date().getFullYear()} Bor de Guna. All rights
+                &copy; {new Date().getFullYear()} Bôr dé Güna. All rights
                 reserved.
               </p>
               <p className="text-gray-500 text-sm mt-2">
@@ -327,7 +331,7 @@ const Footer = () => {
               creation."
             </p>
             <p className="text-gray-400 mt-4">
-              Bor de Guna — Friends of Nature
+              Bôr dé Güna — Friends of Nature
             </p>
           </motion.div>
         </div>

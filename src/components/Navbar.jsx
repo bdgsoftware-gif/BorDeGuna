@@ -32,13 +32,20 @@ const Navbar = () => {
         { name: "All Brands", href: isHomePage ? "#brands" : "/#brands" },
       ],
     },
-    { name: "Products", href: isHomePage ? "#products" : "/#products", type: "link" },
+    {
+      name: "Products",
+      href: isHomePage ? "#products" : "/#products",
+      type: "link",
+    },
     { name: "Gallery", href: "/gallery", type: "link" },
     { name: "About", href: isHomePage ? "#vision" : "/#vision", type: "link" },
-    { name: "Why Trust Us", href: isHomePage ? "#trust" : "/#trust", type: "link" },
-    { name: "Contact", href: "#", type: "link" },
+    {
+      name: "Why Trust Us",
+      href: isHomePage ? "#trust" : "/#trust",
+      type: "link",
+    },
+    { name: "Contact", href: "#footer-contact", type: "link" },
   ];
-
 
   // For PNG logo - replace with your actual logo path
   const logoUrl = "/logo.png"; // Place your logo.png in public folder
@@ -76,25 +83,25 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute left-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                            {link.items.map((item) => 
-                              item.href.startsWith("/") ? (
-                                <Link
-                                  key={item.name}
-                                  to={item.href}
-                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                                >
-                                  {item.name}
-                                </Link>
-                              ) : (
-                                <a
-                                  key={item.name}
-                                  href={item.href}
-                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                                >
-                                  {item.name}
-                                </a>
-                              )
-                            )}
+                          {link.items.map((item) =>
+                            item.href.startsWith("/") ? (
+                              <Link
+                                key={item.name}
+                                to={item.href}
+                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                              >
+                                {item.name}
+                              </Link>
+                            ) : (
+                              <a
+                                key={item.name}
+                                href={item.href}
+                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                              >
+                                {item.name}
+                              </a>
+                            ),
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -115,7 +122,7 @@ const Navbar = () => {
                   >
                     {link.name}
                   </a>
-                )
+                ),
               )}
             </div>
 
@@ -132,7 +139,7 @@ const Navbar = () => {
                     {logoUrl ? (
                       <img
                         src={logoUrl}
-                        alt="Bor de Guna"
+                        alt="Bôr dé Güna"
                         className="w-10 h-10 object-contain"
                         onError={(e) => {
                           e.target.onerror = null;
@@ -162,7 +169,7 @@ const Navbar = () => {
                 {/* Brand Name */}
                 <div className="text-center">
                   <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
-                    Bor de Guna
+                    Bôr dé Güna
                   </h1>
                   <p className="text-xs text-gray-500 font-medium">
                     Since 2019
@@ -194,25 +201,25 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                            {link.items.map((item) => 
-                              item.href.startsWith("/") ? (
-                                <Link
-                                  key={item.name}
-                                  to={item.href}
-                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                                >
-                                  {item.name}
-                                </Link>
-                              ) : (
-                                <a
-                                  key={item.name}
-                                  href={item.href}
-                                  className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                                >
-                                  {item.name}
-                                </a>
-                              )
-                            )}
+                          {link.items.map((item) =>
+                            item.href.startsWith("/") ? (
+                              <Link
+                                key={item.name}
+                                to={item.href}
+                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                              >
+                                {item.name}
+                              </Link>
+                            ) : (
+                              <a
+                                key={item.name}
+                                href={item.href}
+                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                              >
+                                {item.name}
+                              </a>
+                            ),
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -233,7 +240,7 @@ const Navbar = () => {
                   >
                     {link.name}
                   </a>
-                )
+                ),
               )}
 
               {/* CTA Button */}

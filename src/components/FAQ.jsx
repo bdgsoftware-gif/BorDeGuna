@@ -14,12 +14,12 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What makes Bor de Guna products different?",
+      question: "What makes Bôr dé Güna products different?",
       answer:
         "Our products are crafted with 100% natural ingredients, following traditional methods while maintaining international quality standards (BSTI, Halal, HACCP, ISO). We never use artificial preservatives, colors, or chemicals. Each product undergoes 7-stage quality checks before reaching you.",
     },
     {
-      question: "Where can I buy Bor de Guna products?",
+      question: "Where can I buy Bôr dé Güna products?",
       answer:
         "Our products are available nationwide through chain shops, supermarkets, and our e-commerce platform. We participate in various fairs and exhibitions. You can also order directly through our website or contact our customer care for bulk orders.",
     },
