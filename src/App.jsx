@@ -9,6 +9,7 @@ import WhyTrust from "./components/WhyTrust";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 const Gallery = React.lazy(() => import("./pages/Gallery"));
+const StaffVerify = React.lazy(() => import("./pages/StaffVerify"));
 import { initAOS } from "./utils/aosInit";
 
 const HomePage = () => {
@@ -51,6 +52,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/staff-verify" element={<StaffVerify />} />
           </Routes>
         </React.Suspense>
       </div>

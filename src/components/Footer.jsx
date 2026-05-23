@@ -31,33 +31,6 @@ const Footer = () => {
     });
   }, []);
 
-  const footerLinks = {
-    "Our Brands": [
-      { name: "La La Dia", href: "https://laladia.com" },
-      { name: "Bionic", href: "https://bionic.garden" },
-      { name: "Azmion", href: "https://theazmion.com" },
-      { name: "Wellness Centres", href: "#" },
-    ],
-    Products: [
-      { name: "Natural Foods", href: "#" },
-      { name: "Artisanal Products", href: "#" },
-      { name: "Wellness Kits", href: "#" },
-      { name: "New Arrivals", href: "#" },
-    ],
-    Company: [
-      { name: "About Us", href: "#" },
-      { name: "Our Vision", href: "#" },
-      { name: "Core Values", href: "#" },
-      { name: "Careers", href: "#" },
-    ],
-    Support: [
-      { name: "FAQ", href: "#faq" },
-      { name: "Contact Us", href: "#" },
-      { name: "Shipping Policy", href: "#" },
-      { name: "Return Policy", href: "#" },
-    ],
-  };
-
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
@@ -232,37 +205,6 @@ const Footer = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Middle Section - Links */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 pt-8 border-t border-gray-700"
-        >
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <motion.div
-              key={category}
-              variants={itemVariants}
-              className="space-y-3"
-            >
-              <h4 className="text-lg font-bold mb-4">{category}</h4>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-primary transition-colors duration-300 hover:pl-2 block"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-700">

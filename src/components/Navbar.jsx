@@ -27,8 +27,10 @@ const Navbar = () => {
       href: isHomePage ? "#brands" : "/#brands",
       type: "dropdown",
       items: [
-        { name: "La La Dia", href: isHomePage ? "#brands" : "/#brands" },
-        { name: "Bionic", href: isHomePage ? "#brands" : "/#brands" },
+        { name: "La La Dia", href: "https://laladia.com/", external: true },
+        { name: "Bionic", href: "https://bionic.garden/", external: true },
+        { name: "Azmion", href: "https://theazmion.com/", external: true },
+        { name: "TDKI", href: "https://tdki.org/", external: true },
         { name: "All Brands", href: isHomePage ? "#brands" : "/#brands" },
       ],
     },
@@ -47,8 +49,27 @@ const Navbar = () => {
     { name: "Contact", href: "#footer-contact", type: "link" },
   ];
 
-  // For PNG logo - replace with your actual logo path
-  const logoUrl = "/logo.png"; // Place your logo.png in public folder
+  const logoUrl = "/logo.png";
+
+  const DropdownItem = ({ item }) => {
+    const cls = "block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors";
+    if (item.external)
+      return (
+        <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className={cls}>
+          {item.name}
+        </a>
+      );
+    if (item.href.startsWith("/"))
+      return <Link key={item.name} to={item.href} className={cls}>{item.name}</Link>;
+    return <a key={item.name} href={item.href} className={cls}>{item.name}</a>;
+  };
+
+  const NavLink = ({ link }) => {
+    const cls = "text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
+    if (link.href.startsWith("/"))
+      return <Link key={link.name} to={link.href} className={cls}>{link.name}</Link>;
+    return <a key={link.name} href={link.href} className={cls}>{link.name}</a>;
+  };
 
   return (
     <>
@@ -83,45 +104,15 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute left-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                          {link.items.map((item) =>
-                            item.href.startsWith("/") ? (
-                              <Link
-                                key={item.name}
-                                to={item.href}
-                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                              >
-                                {item.name}
-                              </Link>
-                            ) : (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                              >
-                                {item.name}
-                              </a>
-                            ),
-                          )}
+                          {link.items.map((item) => (
+                            <DropdownItem key={item.name} item={item} />
+                          ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
-                ) : link.href.startsWith("/") ? (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {link.name}
-                  </Link>
                 ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {link.name}
-                  </a>
+                  <NavLink key={link.name} link={link} />
                 ),
               )}
             </div>
@@ -129,12 +120,8 @@ const Navbar = () => {
             {/* Centered Logo */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
               <Link to="/" className="flex items-center space-x-3">
-                {/* PNG Logo Container */}
                 <div className="relative">
-                  {/* Logo Background */}
                   <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm"></div>
-
-                  {/* PNG Logo */}
                   <div className="relative bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm border border-gray-100">
                     {logoUrl ? (
                       <img
@@ -148,32 +135,19 @@ const Navbar = () => {
                         }}
                       />
                     ) : (
-                      // Fallback SVG if PNG not found
-                      <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="text-primary"
-                      >
-                        <path
-                          d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z"
-                          fill="currentColor"
-                        />
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-primary">
+                        <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" fill="currentColor" />
                         <circle cx="12" cy="9" r="3" fill="white" />
                       </svg>
                     )}
                   </div>
                 </div>
 
-                {/* Brand Name */}
                 <div className="text-center">
                   <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
                     Bôr dé Güna
                   </h1>
-                  <p className="text-xs text-gray-500 font-medium">
-                    Since 2019
-                  </p>
+                  <p className="text-xs text-gray-500 font-medium">Since 2019</p>
                 </div>
               </Link>
             </div>
@@ -201,56 +175,28 @@ const Navbar = () => {
                           exit={{ opacity: 0, y: 10 }}
                           className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                         >
-                          {link.items.map((item) =>
-                            item.href.startsWith("/") ? (
-                              <Link
-                                key={item.name}
-                                to={item.href}
-                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                              >
-                                {item.name}
-                              </Link>
-                            ) : (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                              >
-                                {item.name}
-                              </a>
-                            ),
-                          )}
+                          {link.items.map((item) => (
+                            <DropdownItem key={item.name} item={item} />
+                          ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
-                ) : link.href.startsWith("/") ? (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {link.name}
-                  </Link>
                 ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {link.name}
-                  </a>
+                  <NavLink key={link.name} link={link} />
                 ),
               )}
 
               {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-green-700 transition-colors duration-300"
-              >
-                Shop Now
-              </motion.button>
+              <Link to="/staff-verify">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-green-700 transition-colors duration-300 cursor-pointer"
+                >
+                  Staff Verify
+                </motion.div>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -259,11 +205,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -281,10 +223,7 @@ const Navbar = () => {
               <div className="container mx-auto px-4 py-6">
                 <div className="space-y-1">
                   {navLinks.map((link) => (
-                    <div
-                      key={link.name}
-                      className="border-b border-gray-100 last:border-0"
-                    >
+                    <div key={link.name} className="border-b border-gray-100 last:border-0">
                       {link.type === "dropdown" ? (
                         <details className="group">
                           <summary className="flex items-center justify-between py-4 text-gray-700 hover:text-primary cursor-pointer list-none">
@@ -292,16 +231,29 @@ const Navbar = () => {
                             <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
                           </summary>
                           <div className="pb-4 pl-4">
-                            {link.items.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="block py-3 text-gray-600 hover:text-primary"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {item.name}
-                              </a>
-                            ))}
+                            {link.items.map((item) =>
+                              item.external ? (
+                                <a
+                                  key={item.name}
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block py-3 text-gray-600 hover:text-primary"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {item.name}
+                                </a>
+                              ) : (
+                                <a
+                                  key={item.name}
+                                  href={item.href}
+                                  className="block py-3 text-gray-600 hover:text-primary"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {item.name}
+                                </a>
+                              )
+                            )}
                           </div>
                         </details>
                       ) : link.href.startsWith("/") ? (
@@ -326,12 +278,13 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile CTA */}
-                <button
-                  className="w-full mt-6 bg-primary text-white py-3 rounded-lg font-medium"
+                <Link
+                  to="/staff-verify"
+                  className="block w-full mt-6 bg-primary text-white py-3 rounded-lg font-medium text-center"
                   onClick={() => setIsOpen(false)}
                 >
-                  Explore Products
-                </button>
+                  Staff Verify
+                </Link>
               </div>
             </motion.div>
           )}
