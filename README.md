@@ -1,16 +1,59 @@
-# React + Vite
+# Bor De Guna — Company Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official marketing website for **Bor De Guna**, a Bangladesh-based health & organic food products brand. Built with React 19 + Vite, featuring smooth scroll animations and multi-page routing.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 19 + Vite 7 |
+| Styling | Tailwind CSS 3 |
+| Animation | GSAP 3, Framer Motion 12, AOS (Animate on Scroll) |
+| Routing | React Router DOM 7 |
+| Icons | Lucide React |
 
-## React Compiler
+## Pages & Sections
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Home (`/`)**
+- Navbar
+- Hero section
+- Brands showcase
+- Products display
+- Mission & Vision
+- Why Trust Us
+- FAQ
+- Footer
 
-## Expanding the ESLint configuration
+**Gallery (`/gallery`)** — lazy loaded product/brand image gallery
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Staff Verify (`/staff-verify`)** — staff identity verification page
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI sections (Navbar, Hero, Products, FAQ, etc.)
+├── pages/          # Lazy-loaded full pages (Gallery, StaffVerify)
+├── utils/
+│   └── aosInit.js  # AOS scroll animation initializer
+├── App.jsx          # Router and page layout
+└── main.jsx         # Entry point
+public/
+├── logos/           # Brand logo files
+├── products/        # Product images
+└── staff/           # Staff photos for verify page
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev      # Development server
+npm run build    # Production build
+npm run preview  # Preview production build
+```
+
+## Deployment
+
+Includes `vercel.json` for Vercel deployment and `robots.txt` + `sitemap.xml` for SEO.
+Built `dist/` output is also committed for direct static hosting.
